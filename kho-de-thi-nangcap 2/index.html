@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Đăng nhập - Kho Đề Thi</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white shadow-xl rounded-lg p-8 max-w-sm w-full">
+    <h2 class="text-2xl font-bold mb-4 text-center text-blue-600">Đăng nhập hệ thống</h2>
+    <input type="email" id="email" placeholder="Email" class="w-full p-2 mb-3 border rounded"/>
+    <input type="password" id="password" placeholder="Mật khẩu" class="w-full p-2 mb-3 border rounded"/>
+    <button onclick="login()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Đăng nhập</button>
+    <p id="error" class="text-red-500 text-sm mt-2 text-center"></p>
+  </div>
+</body>
+</html>

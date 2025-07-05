@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kho Đề Thi</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="script.js" defer></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="max-w-4xl mx-auto py-10 px-4">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-blue-600">📘 Kho Đề Thi</h1>
+      <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Đăng xuất</button>
+    </div>
+
+    <div class="mb-4">
+      <input type="text" id="search" placeholder="🔍 Tìm kiếm đề..." oninput="renderDocuments()"
+        class="w-full p-2 border border-gray-300 rounded"/>
+    </div>
+
+    <div id="uploadSection" class="bg-white p-4 rounded shadow mb-6">
+      <h2 class="text-lg font-semibold mb-2">📝 Tải đề mới</h2>
+      <input type="file" id="pdfFile" class="mb-2" />
+      <input type="text" id="title" placeholder="Tên đề thi" class="w-full p-2 border mb-2 rounded"/>
+      <input type="text" id="subject" placeholder="Môn học (Toán, Lý...)" class="w-full p-2 border mb-2 rounded"/>
+      <input type="text" id="grade" placeholder="Lớp (10,11,12...)" class="w-full p-2 border mb-2 rounded"/>
+      <input type="text" id="year" placeholder="Năm thi (2023...)" class="w-full p-2 border mb-2 rounded"/>
+      <button onclick="uploadPDF()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Tải lên</button>
+    </div>
+
+    <div id="createUserSection" class="bg-white p-4 rounded shadow mb-6">
+      <h2 class="text-lg font-semibold mb-2">👤 Tạo tài khoản người dùng</h2>
+      <input type="email" id="newUserEmail" placeholder="Email người dùng" class="w-full p-2 border mb-2 rounded"/>
+      <select id="newUserRole" class="w-full p-2 border mb-2 rounded">
+        <option value="user">Học viên</option>
+        <option value="admin">Quản trị viên</option>
+      </select>
+      <button onclick="createUser()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Tạo tài khoản</button>
+    </div>
+
+    <ul id="documentList" class="space-y-4"></ul>
+  </div>
+</body>
+</html>
